@@ -30,9 +30,8 @@ type HTTPHeaderApplyConfiguration struct {
 	// Name is the name of the HTTP Header to be matched. Name matching MUST be
 	// case-insensitive. (See https://tools.ietf.org/html/rfc7230#section-3.2).
 	//
-	// If multiple entries specify equivalent header names, the first entry with
-	// an equivalent name MUST be considered for a match. Subsequent entries
-	// with an equivalent header name MUST be ignored. Due to the
+	// Entries in the add and set lists MUST have unique names. The API server
+	// rejects a list that repeats a header name. Due to the
 	// case-insensitivity of header names, "foo" and "Foo" are considered
 	// equivalent.
 	Name *apisv1.HTTPHeaderName `json:"name,omitempty"`
